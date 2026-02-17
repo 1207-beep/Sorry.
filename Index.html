@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Support</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#f8cdda,#fbc2eb);
+  font-family:Arial,sans-serif;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  width:320px;
+  text-align:center;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#yesBtn{background:#ff6b81;color:white;}
+#noBtn{background:#ddd;color:#333;}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  margin-top:20px;
+}
+
+#message{
+  margin-top:20px;
+  font-size:14px;
+  min-height:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h3>Can I learn how to support you better?</h3>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">Okay 🤍</button>
+    <button id="noBtn" onclick="noClicked()">Not right now</button>
+  </div>
+
+  <div id="message"></div>
+</div>
+
+<script>
+let i=0;
+let msgs=[
+ "I’ll prioritise giving you space to be yourself, instead of putting things on you.",
+ "Your comfort will always be my utmost priority.",
+ "It’s okay. I’m learning to accept the consequences.",
+ "Please don't leave me."
+];
+
+function noClicked(){
+ document.getElementById("message").innerText=msgs[Math.min(i,3)];
+ i++;
+ document.getElementById("noBtn").style.transform="scale("+(1-i*0.1)+")";
+ document.getElementById("yesBtn").style.transform="scale("+(1+i*0.12)+")";
+}
+
+function yesClicked(){
+ document.querySelector(".card").innerHTML="<h3>Thank you for giving me a chance 🤍</h3><p>I’ll listen, learn, and respect your pace.</p>";
+}
+</script>
+
+</body>
+</html>
